@@ -15,9 +15,9 @@ public class                                                                    
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        EditText Usesrid = findViewById(R.id.ed_userid);
+        EditText Userid = findViewById(R.id.ed_userid);
         String userid =getSharedPreferences("atm",MODE_PRIVATE).getString("userid","");
-        Usesrid.setText(userid);
+        Userid.setText(userid);
     }
 
     public void login(View view){
