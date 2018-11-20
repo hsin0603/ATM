@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  LoginActivity extends AppCompatActivity {
+public class   LoginActivity extends AppCompatActivity {
 
     private String userid;
     private String password;
@@ -16,7 +16,8 @@ public class                                                                    
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         EditText Userid = findViewById(R.id.ed_userid);
-        String userid =getSharedPreferences("atm",MODE_PRIVATE).getString("userid","");
+        String userid =getSharedPreferences("atm",MODE_PRIVATE)
+                .getString("USERID","");
         Userid.setText(userid);
     }
 
@@ -27,7 +28,7 @@ public class                                                                    
           setResult(RESULT_OK);
             getSharedPreferences("atm",MODE_PRIVATE)
                     .edit()
-                    .putString("userid", userid)
+                    .putString("USERID", userid)
                     .apply();
             finish();
         }else {

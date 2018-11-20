@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class AgeActivity extends AppCompatActivity {
+public class AgeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,17 +15,16 @@ public class AgeActivity extends AppCompatActivity {
 
     }
     public void next (View view){
-        EditText edage = findViewById(R.id.ed_age);
-        String age = edage.getText().toString();
-        getSharedPreferences("user",MODE_PRIVATE)
-                .edit()
-                .putString("AGE",age)
-                .apply();
+        int age = Integer.parseInt(((EditText)findViewById(R.id.ed_age)).getText().toString());
+//        getSharedPreferences("user",MODE_PRIVATE)
+//                .edit()
+//                .putInt("AGE",age)
+//                .apply();
+        user.setAge(age);
         Intent gender = new Intent(this,GenderActivity.class);
         startActivity(gender);
     }
     public void back (View view){
-        Intent nickname  =new Intent(this,NickNameActivity.class);
-        startActivity(nickname);
+        finish();
     }
 }
