@@ -15,7 +15,7 @@ public class User {
 
     public User (Context context){
         this.context = context;
-        settings = context.getSharedPreferences("user",Context.MODE_PRIVATE);
+        settings = context.getSharedPreferences("user",context.MODE_PRIVATE);
     }
     public String getId() {
         return id;
@@ -34,7 +34,7 @@ public class User {
 
     public void setNickname(String username) {
         settings.edit()
-                .putString("NICKNAME", nickname).apply();
+                .putString("NICKNAME", username).apply();
         this.nickname = username;
     }
 
@@ -77,7 +77,7 @@ public class User {
 
 
     public boolean isValid() {
-        valid = getNickname() != null && age != 0 && gender !=0;
+        valid = getNickname() != null && getAge() != 0 && getGender() !=0;
         return valid;
     }
 
