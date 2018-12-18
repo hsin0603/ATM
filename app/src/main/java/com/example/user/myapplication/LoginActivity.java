@@ -1,5 +1,6 @@
 package com.example.user.myapplication;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,12 @@ public class   LoginActivity extends AppCompatActivity {
         String userid =getSharedPreferences("atm",MODE_PRIVATE)
                 .getString("USERID","");
         Userid.setText(userid);
+        MyDBHelper helper = new MyDBHelper(this,"expense.db",null,1);
+        ContentValues values = new ContentValues();
+        values.put("cdate","2018-13-19");
+        values.put("info","Parking");
+        values.put("amount",30);
+        helper.getWritableDatabase().insert("exp",null,values);
     }
 
     public void login(View view){
